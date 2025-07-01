@@ -27,27 +27,3 @@ jobs:
         with:
           project-url: ${{ secrets.PROJECT_URL }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Move to In Progress
-        if: github.event_name == 'pull_request' && github.event.action == 'opened'
-        uses: actions/add-to-project@v0.5.0
-        with:
-          project-url: ${{ secrets.PROJECT_URL }}
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          column-id: ${{ secrets.IN_PROGRESS_COLUMN_ID }}
-
-      - name: Move to Review
-        if: github.event_name == 'pull_request' && github.event.action == 'review_requested'
-        uses: actions/add-to-project@v0.5.0
-        with:
-          project-url: ${{ secrets.PROJECT_URL }}
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          column-id: ${{ secrets.REVIEW_COLUMN_ID }}
-
-      - name: Move to Done
-        if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true
-        uses: actions/add-to-project@v0.5.0
-        with:
-          project-url: ${{ secrets.PROJECT_URL }}
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          column-id: ${{ secrets.DONE_COLUMN_ID }}
