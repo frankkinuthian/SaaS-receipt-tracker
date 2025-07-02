@@ -4,6 +4,8 @@ import { api } from "@/convex/_generated/api";
 import convex from "@/lib/convexClient";
 import { currentUser } from "@clerk/nextjs/server";
 import { getFileDownloadUrl } from "./getFileDownloadUrl";
+import { inngest } from "@/inngest/client";
+import Events from "@/inngest/constants";
 
 // Server action to upload PDF to convex storage
 export async function uploadPDF(formData: FormData) {
@@ -67,18 +69,24 @@ export async function uploadPDF(formData: FormData) {
     // Generate the file URL
     const fileURL = await getFileDownloadUrl(storageId);
 
-    // Trigger Inngest agent flow
-    // TODO: Implement Inngest agent flow
+    // console.log("Sending to Inngest:", fileURL.downloadURL);
 
+    // Trigger Inngest agent flow
+    await inngest.send({
+      name: Events.EXTRACT_DATA_FROM_PDF_AND_SAVE_TO_DATABASE,
+      data: {
+        url: fileURL.downloadURL,
+        receiptId,
+      },
+    });
 
     return {
-        success: true,
-        data: {
-            receiptId,
-            fileName: file.name,
-        }
-    }
-
+      success: true,
+      data: {
+        receiptId,
+        fileName: file.name,
+      },
+    };
   } catch (error) {
     console.error("Server action upload error", error);
     return {

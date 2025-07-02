@@ -15,6 +15,7 @@
     "@clerk/clerk-react": "^5.32.2",
     "@clerk/nextjs": "^6.23.1",
     "@dnd-kit/core": "^6.3.1",
+    "@inngest/agent-kit": "^0.8.3",
     "@radix-ui/react-slot": "^1.2.3",
     "@schematichq/schematic-components": "^1.0.0",
     "@schematichq/schematic-react": "^1.2.5",
@@ -28,7 +29,8 @@
     "next": "15.2.3",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "tailwind-merge": "^3.3.1"
+    "tailwind-merge": "^3.3.1",
+    "zod": "^3.25.67"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.1",

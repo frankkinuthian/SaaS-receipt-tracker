@@ -157,8 +157,9 @@ export const updateReceiptWithExtractedData = mutation({
     merchantAddress: v.string(),
     merchantContact: v.string(),
     transactionDate: v.string(),
-    transactionAmount: v.number(),
+    transactionAmount: v.string(),
     currency: v.string(),
+    receiptSummary: v.string(),
     items: v.array(
       v.object({
         name: v.string(),
@@ -181,7 +182,8 @@ export const updateReceiptWithExtractedData = mutation({
       merchantAddress: args.merchantAddress,
       merchantContact: args.merchantContact,
       transactionDate: args.transactionDate,
-      transactionAmount: args.transactionAmount.toString(),
+      transactionAmount: args.transactionAmount,
+      receiptSummary: args.receiptSummary,
       currency: args.currency,
       items: args.items,
       status: "processed",
