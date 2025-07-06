@@ -225,7 +225,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Documentation**: [docs/](./docs/)
 - **Convex Dashboard**: [dashboard.convex.dev](https://dashboard.convex.dev)
 - **Clerk Dashboard**: [dashboard.clerk.com](https://dashboard.clerk.com)
-- **Schematic Dashboard**: [app.schematic.com](https://app.schematic.com)
+- **Schematic Dashboard**: [app.schematichq.com](https://app.schematic.com)
 - **Inngest Dashboard**: [cloud.inngest.com](https://cloud.inngest.com)
 
 ---
